@@ -21,7 +21,11 @@ const MovieCard = props => {
             {star}
           </div>
         ))}
-        <div className="save-button">Save</div>
+        <button onClick={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+          props.movieSave(props.movie.id)
+        }} className="save-button">Save</button>
       </div>
 
     </Link>

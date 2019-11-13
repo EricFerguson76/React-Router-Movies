@@ -20,10 +20,15 @@ const MovieList = props => {
     getMovies();
   }, []);
 
+  const movieSave = (id) => {
+    const savedMovie = movies.filter(item => item.id === id)
+    props.addToSavedList(...savedMovie)
+  }
+
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} movieSave={movieSave} />
       ))}
     </div>
   );
